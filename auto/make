@@ -5,12 +5,13 @@
 
 echo "creating $NGX_MAKEFILE"
 
-rm -rf "$NGX_OBJS/src" "$NGX_OBJS/man" "$NGX_OBJS/conf" "$NGX_OBJS/html"
+rm -rf "$NGX_OBJS/src" "$NGX_OBJS/man" "$NGX_OBJS/conf"
+rm -f "$NGX_OBJS/html"
 mkdir -p "$NGX_OBJS"
 cp -r src "$NGX_OBJS"
 cp -r man "$NGX_OBJS"
 cp -r conf "$NGX_OBJS"
-cp -r html "$NGX_OBJS"
+ln -sf -t "$NGX_OBJS" `pwd`/html
 
 
 ngx_objs_dir=$NGX_OBJS$ngx_regex_dirsep
